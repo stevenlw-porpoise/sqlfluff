@@ -116,9 +116,7 @@ duckdb_dialect.replace(
         ),
         Ref("AliasExpressionSegment", optional=True),
     ),
-    NonSetSelectableGrammar=postgres_dialect.get_grammar(
-        "NonSetSelectableGrammar"
-    ).copy(
+    NonSetSelectableGrammar=postgres_dialect.get_grammar("NonSetSelectableGrammar").copy(
         insert=[
             Ref("SimplifiedPivotExpressionSegment"),
             Ref("SimplifiedUnpivotExpressionSegment"),
@@ -159,9 +157,7 @@ duckdb_dialect.replace(
         "single_quote", IdentifierSegment, type="quoted_identifier", casefold=str.lower
     ),
     ListComprehensionGrammar=Ref("ListComprehensionExpressionSegment"),
-    ComparisonOperatorGrammar=ansi_dialect.get_grammar(
-        "ComparisonOperatorGrammar"
-    ).copy(
+    ComparisonOperatorGrammar=ansi_dialect.get_grammar("ComparisonOperatorGrammar").copy(
         insert=[
             Ref("EqualsSegment_a"),
             Ref("GlobOperatorSegment"),
@@ -511,9 +507,7 @@ class SelectClauseElementSegment(ansi.SelectClauseElementSegment):
     )
 
 
-class ColumnsExpressionFunctionContentsSegment(
-    ansi.ColumnsExpressionFunctionContentsSegment
-):
+class ColumnsExpressionFunctionContentsSegment(ansi.ColumnsExpressionFunctionContentsSegment):
     """Columns expression in a select statement.
 
     https://duckdb.org/docs/sql/expressions/star#columns-expression
@@ -534,7 +528,7 @@ class ColumnsExpressionFunctionContentsSegment(
 class LambdaExpressionSegment(BaseSegment):
     """Lambda function used in a function or columns expression.
 
-    https://duckdb.org/docs/sql/functions/lambda
+    https://duckdb.org/docs/stable/sql/functions/lambda
     https://duckdb.org/docs/sql/expressions/star#columns-lambda-function
     """
 
@@ -824,9 +818,7 @@ class FromUnpivotExpressionSegment(BaseSegment):
                     Bracketed(
                         Delimited(
                             Sequence(
-                                OptionallyBracketed(
-                                    Delimited(Ref("SingleIdentifierGrammar"))
-                                ),
+                                OptionallyBracketed(Delimited(Ref("SingleIdentifierGrammar"))),
                                 Ref("AliasExpressionSegment", optional=True),
                             ),
                             Ref("ColumnsExpressionGrammar"),
