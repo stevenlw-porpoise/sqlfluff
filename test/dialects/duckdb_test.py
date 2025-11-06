@@ -27,7 +27,7 @@ from _pytest.logging import LogCaptureFixture
         ("WildcardPatternMatchingSegment", "SIMILAR TO 'col.'"),
         ("LambdaExpressionSegment", "x -> x + 1"),  # syntax deprecated in duckdb 1.3
         ("LambdaExpressionSegment", "lambda x: x + 1"),  # syntax introduced in duckdb 1.3
-        ("ListComprehensionExpression", "[upper(x) FOR x IN strings IF len(x) > 0]"),
+        ("ListComprehensionExpressionSegment", "[upper(x) FOR x IN strings IF len(x) > 0]"),
         ("OrderByClauseSegment", "ORDER BY ALL"),
         ("OrderByClauseSegment", "order by 1, b"),
         ("GroupByClauseSegment", "GROUP BY ALL"),
