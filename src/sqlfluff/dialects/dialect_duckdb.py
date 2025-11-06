@@ -992,6 +992,7 @@ class CopyStatementSegment(postgres.CopyStatementSegment):
                         "OVERWRITE_OR_IGNORE",
                         Ref("BooleanLiteralGrammar", optional=True),
                     ),
+                    Sequence("AUTO_DETECT", Ref("BooleanLiteralGrammar", optional=True)),
                     Sequence("OVERWRITE", Ref("BooleanLiteralGrammar", optional=True)),
                     Sequence("APPEND", Ref("BooleanLiteralGrammar", optional=True)),
                     Sequence(

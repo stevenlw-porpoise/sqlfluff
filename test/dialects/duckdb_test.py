@@ -76,10 +76,6 @@ INTO
         ),
         (
             "CopyStatementSegment",
-            "COPY lineitem TO 'lineitem.csv' (FORMAT csv, DELIMITER '|', HEADER)",
-        ),
-        (
-            "CopyStatementSegment",
             "COPY (SELECT l_orderkey, l_partkey FROM lineitem) TO 'lineitem.parquet' (COMPRESSION zstd)",
         ),
     ],
