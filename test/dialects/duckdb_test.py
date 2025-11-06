@@ -53,7 +53,7 @@ USING first(population)""",
         ),
         (
             "FromUnpivotExpressionSegment",
-            """FROM monthly_sales UNPIVOT (
+            """UNPIVOT (
     sales
     FOR month IN (jan, feb, mar, apr, may, jun)
 )""",
