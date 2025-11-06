@@ -49,8 +49,7 @@ from _pytest.logging import LogCaptureFixture
             "SimplifiedPivotExpressionSegment",
             """PIVOT cities
 ON year
-USING first(population)
-        """,
+USING first(population)""",
         ),
         (
             "FromUnpivotExpressionSegment",
