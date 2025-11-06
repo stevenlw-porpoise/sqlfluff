@@ -1,4 +1,5 @@
 """Tests specific to the duckdb dialect."""
+# TODO: The tests are supposed to be in test/fixtures/dialects/duckdb. Move them over.
 
 from typing import Callable
 
