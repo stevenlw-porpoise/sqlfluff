@@ -38,20 +38,16 @@ from _pytest.logging import LogCaptureFixture
         ),
         (
             "FromPivotExpressionSegment",
-            """
-SELECT *
-FROM cities
-PIVOT (
+            """PIVOT (
     sum(population)
     FOR
         year IN (2000, 2010, 2020)
     GROUP BY country
-);""",
+)""",
         ),
         (
             "SimplifiedPivotExpressionSegment",
-            """
-PIVOT cities
+            """PIVOT cities
 ON year
 USING first(population)
         """,
@@ -81,7 +77,7 @@ INTO
         ),
         (
             "CopyStatementSegment",
-            "COPY lineitem TO 'lineitem.csv' (FORMAT csv, DELIMITER '|', HEADER);",
+            "COPY lineitem TO 'lineitem.csv' (FORMAT csv, DELIMITER '|', HEADER)",
         ),
         (
             "CopyStatementSegment",
