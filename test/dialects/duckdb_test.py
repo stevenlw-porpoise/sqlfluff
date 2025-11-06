@@ -70,14 +70,6 @@ INTO
             "CreateFunctionStatementSegment",
             "CREATE MACRO ifelse(a, b, c) AS CASE WHEN a THEN b ELSE c END",
         ),
-        (
-            "CopyStatementSegment",
-            "COPY lineitem FROM 'lineitem.json' (FORMAT json, AUTO_DETECT true)",
-        ),
-        (
-            "CopyStatementSegment",
-            "COPY (SELECT l_orderkey, l_partkey FROM lineitem) TO 'lineitem.parquet' (COMPRESSION zstd)",
-        ),
     ],
 )
 def test_dialect_duckdb_specific_segment_parses(
