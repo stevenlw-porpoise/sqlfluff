@@ -10,7 +10,7 @@ from _pytest.logging import LogCaptureFixture
     "segment_reference,raw",
     [
         ("CreateTypeStatementSegment", "create  type foo as struct(i integer,j varchar)"),
-        ("MapTypeSchemaSegment", "{'key1': 10}"),
+        ("CreateTypeStatementSegment", "create  type foo as map(integer, varchar)"),
         ("InsertStatementSegment", "INSERT INTO tbl VALUES (1), (2), (3)"),
         (
             "CreateTableStatementSegment",
