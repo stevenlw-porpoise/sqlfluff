@@ -24,11 +24,11 @@ from sqlfluff.core.parser import (
     RegexLexer,
     RegexParser,
     Sequence,
-    StringLexer,
     StringParser,
     SymbolSegment,
     TypedParser,
 )
+from sqlfluff.core.parser.lexer import StringLexer
 from sqlfluff.dialects import dialect_ansi as ansi
 from sqlfluff.dialects import dialect_postgres as postgres
 
@@ -90,6 +90,8 @@ duckdb_dialect.add(
     OrIgnoreGrammar=Sequence("OR", "IGNORE"),
     EqualsSegment_a=StringParser("==", ComparisonOperatorSegment),
     UnpackingOperatorSegment=TypedParser("star", SymbolSegment, "unpacking_operator"),
+    # ExponentSegment=StringParser("**", BinaryOperatorSegment),
+    # BitwiseAndSegment_duckdb=StringParser("&&", BinaryOperatorSegment),
 )
 
 duckdb_dialect.replace(
@@ -178,6 +180,20 @@ duckdb_dialect.insert_lexer_matchers(
         StringLexer("double_divide", "//", CodeSegment),
     ],
     before="divide",
+)
+
+duckdb_dialect.insert_lexer_matchers(
+    [
+        StringLexer("exponent", "**", CodeSegment),
+    ],
+    before="caret",
+)
+
+duckdb_dialect.insert_lexer_matchers(
+    [
+        StringLexer("bitwise_and", "&&", CodeSegment),
+    ],
+    before="caret",
 )
 
 duckdb_dialect.patch_lexer_matchers(

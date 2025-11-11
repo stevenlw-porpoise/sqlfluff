@@ -27,6 +27,15 @@ WITH unpivot_alias AS (
 
 SELECT * FROM unpivot_alias;
 
+-- TODO: fix trailing comma issue
+-- unpivot
+--     tbl
+-- on
+--     c1, c2, c3,
+-- into
+--     name p
+--     value a;
+
 -- Standard UNPIVOT
 FROM monthly_sales UNPIVOT (
     sales
@@ -46,3 +55,5 @@ UNPIVOT (
         (apr, may, jun) AS q2
     )
 );
+
+

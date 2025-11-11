@@ -1,0 +1,12 @@
+-- select 2^3;
+
+-- -- |/ double precision → double precision
+-- -- Square root
+-- -- |/ 25.0 → 5
+-- select |/ 25.0;
+-- -- ||/ double precision → double precision
+-- -- Cube root
+-- -- ||/ 64.0 → 4
+-- select ||/ 64.0;
+-- -- @ numeric_type → numeric_type
+-- select @ -5.0;

@@ -1,0 +1,28 @@
+-- -- +	Addition	2 + 3	5
+-- select 2 + 3;
+-- -- -	Subtraction	2 - 3	-1
+-- select 2 - 3;
+-- -- *	Multiplication	2 * 3	6
+-- select 2*3;
+-- -- /	Float division	5 / 2	2.5
+-- select 5/2;
+-- -- //	Division	5 // 2	2
+-- select 5//2;
+-- -- %	Modulo (remainder)	5 % 4	1
+-- select 5%4;
+-- -- **	Exponent	3 ** 4	81
+-- -- select 3 ** 4;
+-- -- ^	Exponent (alias for **)	3 ^ 4	81
+-- select 3^4;
+-- -- -- &	Bitwise AND	91 & 15	11
+-- select 91 && 15;
+-- -- -- |	Bitwise OR	32 | 3	35
+-- select 32 | 3;
+-- -- -- <<	Bitwise shift left	1 << 4	16
+-- select 1 << 4;
+-- -- -- >>	Bitwise shift right	8 >> 2	2
+-- select 8 >> 2;
+-- -- -- ~	Bitwise negation	~15	-16
+-- select ~15;
+-- -- -- !	Factorial of x	4!	24
+-- -- select 4!;
