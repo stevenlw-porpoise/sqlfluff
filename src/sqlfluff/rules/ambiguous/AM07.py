@@ -33,7 +33,7 @@ class Rule_AM07(BaseRule):
     **Best practice**
 
     Always specify columns when writing set queries
-    and ensure that they all seleect same number of columns
+    and ensure that they all select same number of columns
 
     .. code-block:: sql
 
@@ -145,6 +145,7 @@ class Rule_AM07(BaseRule):
         If it does, we attempt to resolve them.
         """
         self.logger.debug("Resolving selectable: %r", selectable.selectable.raw)
+        # TODO: in duckdb,
         assert selectable.select_info
         wildcard_info = selectable.get_wildcard_info()
         # Start with the number of non-wild columns.
@@ -208,6 +209,8 @@ class Rule_AM07(BaseRule):
                 # If it is, work from there instead.
                 root = parent
                 break
+
+        self.select_optional = context.dialect.name == "duckdb"
 
         query: Query = Query.from_segment(root, dialect=context.dialect)
         set_segment_select_sizes, resolve_wildcard = self._get_select_target_counts(

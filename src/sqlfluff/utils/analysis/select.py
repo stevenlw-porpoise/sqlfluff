@@ -52,6 +52,20 @@ def get_select_statement_info(
     if not sc:  # pragma: no cover
         # TODO: Review whether this clause should be removed. It might only
         # have existed for an old way of structuring the Exasol dialect.
+        # TODO: I think this is also reached when DuckDB has a FROM only no SELECT query
+        # but need to walk through the code and verify
+        if dialect and dialect.name == "duckdb":
+            return SelectStatementColumnsAndTables(
+                select_statement=segment,
+                table_aliases=table_aliases or [],
+                standalone_aliases=standalone_aliases or [],
+                reference_buffer=[],
+                select_targets=[],
+                col_aliases=[],
+                using_cols=[],
+                table_reference_buffer=[],
+            )
+        # breakpoint()
         return None
     # NOTE: In this first crawl, don't crawl inside any sub-selects, that's very
     # important for both isolation and performance reasons.
